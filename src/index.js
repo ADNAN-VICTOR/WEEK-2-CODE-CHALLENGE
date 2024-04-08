@@ -3,6 +3,7 @@ $(document).ready(function() {
     let currentFilm; //  this variable stores the currently selected film
 
     // this function is used to fetch films data from the local server using an AJAX request
+    //I used AJAX instead of fetch so that the website loads the data without refreshing
     function fetchFilmsData() {
         $.ajax({
             url: 'http://localhost:3000/films',
@@ -18,12 +19,12 @@ $(document).ready(function() {
         });
     }
 
-    // Function to display film titles
+    // Function used to display film titles
     function displayFilmTitles(films) {
         let filmsList = $('#films');
         filmsList.empty(); // Clears the previous film titles
 
-        // it Loops through each film 
+        // then it Loops through each film 
         films.forEach(function(film) {
             // displays film titles as clickable links.
             let filmLink = $('<a>').addClass('film item').attr('href', '#').text(film.title);
@@ -38,7 +39,7 @@ $(document).ready(function() {
         });
     }
 
-    // This function updates the film details section
+    // This function updates the film details section and is called earlier in displayFilmTitles() function
     //with information about the currently selected film after it has been clicked.
     function updateFilmDetails() {
         $('#title').text(currentFilm.title);
