@@ -1,5 +1,4 @@
-//This ensures that the JavaScript code runs only after the DOM has been fully loaded.
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     let currentFilm; //  this variable stores the currently selected film
 
     // this function is used to fetch films data from the local server using an AJAX request
@@ -28,7 +27,7 @@ $(document).ready(function() {
         films.forEach(function(film) {
             // displays film titles as clickable links.
             let filmLink = $('<a>').addClass('film item').attr('href', '#').text(film.title);
-            filmLink.click(function() {
+            filmLink[0].addEventListener('click', function() {
                 //When a film link is clicked, it sets the currentFilm variable 
                 //and calls the updateFilmDetails function to display the details of the selected film.
                 currentFilm = film;
@@ -51,7 +50,7 @@ $(document).ready(function() {
     }
 
     // Buy Ticket event handler
-    $('#buy-ticket').click(function() {
+    document.getElementById('buy-ticket').addEventListener('click', function() {
         if (currentFilm) {
             if (currentFilm.tickets_sold < currentFilm.capacity) {
                 currentFilm.tickets_sold++;
