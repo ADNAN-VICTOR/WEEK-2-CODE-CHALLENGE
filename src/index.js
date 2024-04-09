@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //I used AJAX instead of fetch so that the website loads the data without refreshing
     function fetchFilmsData() {
         $.ajax({
-            url: 'http://localhost:3000/films',
+            url: 'https://json-server-1-rmt0.onrender.com/films',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
