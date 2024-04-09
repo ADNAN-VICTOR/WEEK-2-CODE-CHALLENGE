@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     let currentFilm; //  this variable stores the currently selected film
 
@@ -67,3 +68,4 @@ document.addEventListener('DOMContentLoaded', function() {
    //and populate the page with film titles.
     fetchFilmsData();
 });
+
